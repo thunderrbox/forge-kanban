@@ -1,0 +1,17 @@
+{
+  "agent_id": "openclaw-coder-01",
+  "name": "OpenClaw",
+  "role": "Execution Coder",
+  "model": "groq/llama-3.3-70b-versatile",
+  "slack_channel": "#agent-coder",
+  "allowed_tools": [
+    "run_command",
+    "replace_file_content",
+    "list_dir",
+    "view_file"
+  ],
+  "sandbox": {
+    "enabled": true,
+    "cwd": "./"
+  }
+}

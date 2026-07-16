@@ -1,0 +1,14 @@
+{
+  "agent_id": "hermes-brain-01",
+  "name": "Hermes",
+  "role": "Orchestration Brain",
+  "model": "gemini/gemini-2.5-flash",
+  "channels": {
+    "sprint_main": "#sprint-main",
+    "agent_coder": "#agent-coder",
+    "agent_log": "#agent-log"
+  },
+  "memory_store": "C:/Users/abhij/.gemini/antigravity/scratch/memory.json",
+  "skills_dir": "./skills",
+  "autonomous_interval_min": 10
+}

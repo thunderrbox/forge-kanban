@@ -1,0 +1,8 @@
+composer.phar
+cacert.pem
+php.ini
+.env
+node_modules/
+vendor/
+database.sqlite
+dist/
