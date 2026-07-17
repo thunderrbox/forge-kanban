@@ -7,8 +7,8 @@
 ## 🚀 Live Deployments
 | Layer | Service | Live URL |
 |---|---|---|
-| **Frontend** | Vercel | [https://forge-kanban-frontend.vercel.app](https://forge-kanban-frontend.vercel.app) |
-| **Backend** | Render | [https://forge-kanban-backend.onrender.com](https://forge-kanban-backend.onrender.com) |
+| **Frontend** | Vercel | [https://kanban-eight-opal.vercel.app](https://kanban-eight-opal.vercel.app) |
+| **Backend** | Render | [https://forge-kanban-backend-nw5i.onrender.com](https://forge-kanban-backend-nw5i.onrender.com) |
 
 ---
 
@@ -21,6 +21,7 @@
 - 👤 **Team Assignments:** Manage team members globally and assign them to specific cards.
 - 📅 **Due Dates:** Keep track of deadlines.
 - 🚨 **Overdue Highlight:** Tasks that are past their due date glow with an elegant, soft-red pulsating visual flag.
+- 💬 **Comments & Activity Feed (Bonus Feature):** Post and delete comments inside the card details view to log notes and coordinate activities.
 
 ---
 
