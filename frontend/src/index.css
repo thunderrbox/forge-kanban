@@ -458,3 +458,223 @@ button {
   border-radius: 50%;
   display: inline-block;
 }
+
+/* ==========================================================================
+   Hero & Landing Page Section (Dribbble Layout)
+   ========================================================================== */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1280px;
+  margin: 4rem auto 2rem auto;
+  padding: 0 3rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.hero-actions-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  border-radius: 14px;
+}
+
+/* Hero Visual Mockup Window */
+.hero-visual {
+  background: #18181b;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-header {
+  background: #09090b;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mockup-dot.red { background-color: #ef4444; }
+.mockup-dot.yellow { background-color: #f59e0b; }
+.mockup-dot.green { background-color: #10b981; }
+
+.mockup-title {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mockup-body {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  background: rgba(9, 9, 11, 0.4);
+}
+
+.mockup-col h5 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.mockup-card {
+  background: #18181b;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.85rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-pulse {
+  animation: visual-pulse 2s infinite alternate;
+}
+
+@keyframes visual-pulse {
+  0% {
+    border-color: var(--border-color);
+  }
+  100% {
+    border-color: #818cf8;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+  }
+}
+
+.card-glow-rose {
+  border-color: #f43f5e;
+  animation: rose-pulse 1.8s infinite alternate;
+}
+
+@keyframes rose-pulse {
+  0% {
+    box-shadow: 0 0 4px rgba(244, 63, 94, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+  }
+}
+
+/* Stats Bar */
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(90deg, rgba(24, 24, 27, 0) 0%, #18181b 50%, rgba(24, 24, 27, 0) 100%);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem 3rem;
+  max-width: 1280px;
+  margin: 3rem auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-item p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjust for Hero */
+@media (max-width: 968px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-content h1 {
+    font-size: 2.75rem;
+    text-align: center;
+  }
+  .hero-subtitle {
+    text-align: center;
+  }
+  .hero-actions-row {
+    justify-content: center;
+  }
+  .stats-bar {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
