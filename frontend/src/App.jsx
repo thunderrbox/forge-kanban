@@ -288,7 +288,11 @@ function App() {
               </p>
               <div className="hero-actions-row">
                 <button className="btn-primary btn-lg" onClick={() => {
-                  document.getElementById('boards-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+                  const el = document.getElementById('boards-dashboard');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
                 }}>
                   Launch Dashboard ↓
                 </button>
