@@ -33,6 +33,9 @@ function App() {
   const [tagName, setTagName] = useState('');
   const [tagColor, setTagColor] = useState('#3b82f6');
 
+  // Comment creation
+  const [commentContent, setCommentContent] = useState('');
+
   // Load baseline data
   useEffect(() => {
     fetchBoards();
@@ -241,6 +244,42 @@ function App() {
       const updatedCard = {
         ...selectedCard,
         tags: selectedCard.tags.filter(t => t.id !== tagId)
+      };
+      setSelectedCard(updatedCard);
+      refreshCurrentBoard();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Comment Handlers
+  const handleAddComment = async (e) => {
+    e.preventDefault();
+    if (!commentContent.trim() || !selectedCard) return;
+    try {
+      const res = await axios.post(`${API_BASE}/comments`, {
+        card_id: selectedCard.id,
+        content: commentContent
+      });
+      const updatedCard = {
+        ...selectedCard,
+        comments: [res.data, ...(selectedCard.comments || [])]
+      };
+      setSelectedCard(updatedCard);
+      setCommentContent('');
+      refreshCurrentBoard();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    if (!confirm('Are you sure you want to delete this comment?')) return;
+    try {
+      await axios.delete(`${API_BASE}/comments/${commentId}`);
+      const updatedCard = {
+        ...selectedCard,
+        comments: selectedCard.comments.filter(c => c.id !== commentId)
       };
       setSelectedCard(updatedCard);
       refreshCurrentBoard();
@@ -679,6 +718,47 @@ function App() {
                   />
                   <button type="submit" className="btn-primary" style={{ padding: '0.5rem 1rem' }}>Add</button>
                 </form>
+
+                {/* Comments Section */}
+                <div style={{ marginTop: '2rem', borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem' }}>
+                  <h4>Comments & Activity</h4>
+                  <form onSubmit={handleAddComment} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '0.75rem' }}>
+                    <textarea
+                      placeholder="Write a comment..."
+                      className="form-control"
+                      rows="2"
+                      value={commentContent}
+                      onChange={(e) => setCommentContent(e.target.value)}
+                      required
+                    />
+                    <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-end', padding: '0.4rem 1rem', fontSize: '0.85rem' }}>
+                      Post Comment
+                    </button>
+                  </form>
+
+                  <div className="comments-list" style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                    {selectedCard.comments && selectedCard.comments.map(c => (
+                      <div key={c.id} className="comment-item" style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '10px', display: 'flex', flexDirection: 'column', gap: '0.35rem', position: 'relative' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                          <span style={{ fontWeight: '600' }}>Activity Note</span>
+                          <span>{new Date(c.created_at).toLocaleString()}</span>
+                        </div>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-primary)', lineHeight: '1.4', paddingRight: '4rem' }}>{c.content}</p>
+                        <button
+                          type="button"
+                          className="btn-secondary"
+                          style={{ position: 'absolute', right: '0.5rem', bottom: '0.5rem', padding: '0.2rem 0.4rem', fontSize: '0.7rem', color: 'var(--danger-color)', border: 'none', background: 'transparent' }}
+                          onClick={() => handleDeleteComment(c.id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    ))}
+                    {(!selectedCard.comments || selectedCard.comments.length === 0) && (
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>No comments yet.</span>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
           </div>
