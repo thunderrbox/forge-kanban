@@ -273,21 +273,114 @@ function App() {
 
       {/* Main Content Area */}
       {activeView === 'boards' && (
-        <div className="boards-container">
-          <div className="flex-between">
-            <h2>Kanban Boards</h2>
-            <form onSubmit={handleCreateBoard} style={{ display: 'flex', gap: '0.5rem' }}>
-              <input
-                type="text"
-                placeholder="New Board Name..."
-                className="form-control"
-                style={{ width: '250px' }}
-                value={newBoardName}
-                onChange={(e) => setNewBoardName(e.target.value)}
-              />
-              <button type="submit" className="btn-primary">Create Board</button>
-            </form>
-          </div>
+        <>
+          {/* Hero Landing Section */}
+          <section className="hero-section">
+            <div className="hero-content">
+              <div className="hero-badge">⚡ Version 2.0 Live</div>
+              <h1>
+                Organize projects,<br />
+                <span className="hero-gradient">One card at a time.</span>
+              </h1>
+              <p className="hero-subtitle">
+                A premium, lightning-fast collaborative Kanban board built for agile teams. 
+                Track tasks, assign members, style tags, and monitor overdue deadlines in real time.
+              </p>
+              <div className="hero-actions-row">
+                <button className="btn-primary btn-lg" onClick={() => {
+                  document.getElementById('boards-dashboard')?.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                  Launch Dashboard ↓
+                </button>
+                <button className="btn-secondary btn-lg" onClick={() => {
+                  setActiveView('members');
+                  setCurrentBoard(null);
+                }}>
+                  Manage Team Members
+                </button>
+              </div>
+            </div>
+
+            {/* Interactive Hero Visual Mockup */}
+            <div className="hero-visual">
+              <div className="mockup-header">
+                <div style={{ display: 'flex', gap: '0.4rem' }}>
+                  <span className="mockup-dot red"></span>
+                  <span className="mockup-dot yellow"></span>
+                  <span className="mockup-dot green"></span>
+                </div>
+                <span className="mockup-title">Active Live Workspace</span>
+              </div>
+              <div className="mockup-body">
+                <div className="mockup-col">
+                  <h5>To Do</h5>
+                  <div className="mockup-card">
+                    <div className="card-tags"><span className="tag-badge" style={{ backgroundColor: '#818cf8' }}>Design</span></div>
+                    <div className="card-title" style={{ fontSize: '0.85rem' }}>Refactor Hero UI/UX</div>
+                    <div className="card-meta"><span className="date-badge">📅 Tomorrow</span></div>
+                  </div>
+                </div>
+                <div className="mockup-col">
+                  <h5>In Progress</h5>
+                  <div className="mockup-card card-pulse">
+                    <div className="card-tags"><span className="tag-badge" style={{ backgroundColor: '#10b981' }}>Live</span></div>
+                    <div className="card-title" style={{ fontSize: '0.85rem' }}>Verify DB Migrations</div>
+                    <div className="card-meta"><span className="assignee-badge">👤 Abhijeet</span></div>
+                  </div>
+                </div>
+                <div className="mockup-col">
+                  <h5>Overdue</h5>
+                  <div className="mockup-card card-glow-rose">
+                    <div className="card-tags"><span className="tag-badge" style={{ backgroundColor: '#f43f5e' }}>Critical</span></div>
+                    <div className="card-title" style={{ fontSize: '0.85rem' }}>Verify SSL Certs</div>
+                    <div className="card-meta"><span className="date-badge overdue">⚠️ Overdue</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Stats Bar */}
+          <section className="stats-bar">
+            <div className="stat-item">
+              <h3>SQLite 3</h3>
+              <p>Database Core</p>
+            </div>
+            <div className="stat-item">
+              <h3>&lt; 30ms</h3>
+              <p>Response Latency</p>
+            </div>
+            <div className="stat-item">
+              <h3>Vite + React</h3>
+              <p>Frontend Engine</p>
+            </div>
+            <div className="stat-item">
+              <h3>Laravel 13</h3>
+              <p>API Service</p>
+            </div>
+          </section>
+
+          {/* Dashboard Area */}
+          <div id="boards-dashboard" className="boards-container" style={{ paddingTop: '6rem' }}>
+            <div className="flex-between">
+              <div>
+                <h2>Workspace Boards</h2>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
+                  Create or open a collaborative board to start listing cards.
+                </p>
+              </div>
+              <form onSubmit={handleCreateBoard} style={{ display: 'flex', gap: '0.5rem' }}>
+                <input
+                  type="text"
+                  placeholder="New Board Name..."
+                  className="form-control"
+                  style={{ width: '250px' }}
+                  value={newBoardName}
+                  onChange={(e) => setNewBoardName(e.target.value)}
+                />
+                <button type="submit" className="btn-primary">Create Board</button>
+              </form>
+            </div>
 
           <div className="boards-grid">
             {boards.map(b => (
@@ -307,6 +400,7 @@ function App() {
             )}
           </div>
         </div>
+      </>
       )}
 
       {activeView === 'members' && (
