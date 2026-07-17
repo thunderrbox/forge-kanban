@@ -8,9 +8,9 @@
   --border-color: rgba(63, 63, 70, 0.45);
   --text-primary: #f4f4f5;
   --text-secondary: #a1a1aa;
-  --accent-color: #6366f1;
-  --accent-hover: #4f46e5;
-  --accent-glow: rgba(99, 102, 241, 0.3);
+  --accent-color: #10b981;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.3);
   --danger-color: #f43f5e;
   --danger-glow: rgba(244, 63, 94, 0.35);
   --success-color: #10b981;
@@ -58,16 +58,16 @@ body {
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.025em;
-  background: linear-gradient(135deg, #fff 40%, #a5b4fc 100%);
+  background: linear-gradient(135deg, #fff 40%, #a7f3d0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .brand-accent {
-  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
   font-size: 1.8rem;
 }
 
@@ -89,14 +89,14 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
   box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
 }
 
 .btn-secondary {
@@ -225,15 +225,15 @@ button {
   left: 0;
   width: 6px;
   height: 100%;
-  background: linear-gradient(to bottom, #818cf8, #c084fc);
+  background: linear-gradient(to bottom, #34d399, #10b981);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .board-card:hover {
   transform: translateY(-6px);
-  border-color: #818cf8;
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.18);
+  border-color: #34d399;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.18);
 }
 
 .board-card:hover::before {
@@ -340,7 +340,7 @@ button {
 }
 
 .kanban-card:hover {
-  border-color: #818cf8;
+  border-color: #34d399;
   transform: translateY(-3px) scale(1.01);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   background: rgba(39, 39, 42, 0.7);
@@ -501,7 +501,7 @@ button {
 }
 
 .hero-gradient {
-  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -600,8 +600,8 @@ button {
     border-color: var(--border-color);
   }
   100% {
-    border-color: #818cf8;
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+    border-color: #34d399;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
   }
 }
 
@@ -639,7 +639,7 @@ button {
   font-size: 1.75rem;
   font-weight: 800;
   color: #fff;
-  background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
