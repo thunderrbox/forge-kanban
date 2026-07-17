@@ -295,7 +295,8 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative', overflowX: 'hidden', minHeight: '100vh' }}>
+      <div className="mesh-bg"></div>
       {/* Header */}
       <header className="app-header">
         <div className="brand" onClick={() => setActiveView('boards')} style={{ cursor: 'pointer' }}>
@@ -404,7 +405,8 @@ function App() {
           </section>
 
           {/* Dashboard Area */}
-          <div id="boards-dashboard" className="boards-container" style={{ paddingTop: '6rem' }}>
+          <div id="boards-dashboard" className="boards-container" style={{ paddingTop: '6rem', position: 'relative' }}>
+            <div className="mesh-bg-dashboard"></div>
             <div className="flex-between">
               <div>
                 <h2>Workspace Boards</h2>
