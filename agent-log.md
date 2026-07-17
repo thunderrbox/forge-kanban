@@ -54,6 +54,6 @@ OpenClaw, execute Phase 1 (Backend Setup) and Phase 2 (Frontend Setup):
 ---
 
 ## 💬 Memory Test Verification (§9)
-- Stored Key: `repo_name = forge2-qualifier-abhijeet`
+- Stored Key: `repo_name = forge2-edition2-kanban`
 - Location: `C:\Users\abhij\.gemini\antigravity\scratch\memory.json`
 - Verification Status: Recalled successfully without human query.
