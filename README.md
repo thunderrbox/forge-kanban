@@ -54,6 +54,8 @@ php artisan migrate
 
 # Start the server on port 8000
 php artisan serve --port=8000
+# Alternative if PHP extensions need a custom php.ini:
+# php -c ../php.ini -S 127.0.0.1:8000 -t public ../backend/server.php
 ```
 
 ### 2. Frontend Setup
